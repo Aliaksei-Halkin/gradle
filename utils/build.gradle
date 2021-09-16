@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group 'com.epam.utils'
+version '1.3.5'
+targetCompatibility = "1.16"
+sourceCompatibility = "1.16"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'org.apache.commons:commons-lang3:3.10'
+}
+
+jar{
+    manifest{
+        attributes("Name":project.name, "Version":project.version)
+    }
+}
+test{
+    useJUnitPlatform()
+}
+
+publishing{
+    publications{
+        maven(MavenPublication){
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+            from components.java
+        }
+    }
+}
+
+build.dependsOn publishToMavenLocal
