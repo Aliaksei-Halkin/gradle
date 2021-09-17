@@ -1,0 +1,11 @@
+
+plugins {
+    id 'java'
+}
+
+group 'com.epam.api'
+version '1.0'
+
+dependencies {
+    implementation project(':core')
+}

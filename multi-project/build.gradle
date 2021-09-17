@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+}
+
+group 'com.epam.multi-project'
+version '1.0'
+
+subprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+}
